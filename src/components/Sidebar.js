@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import clsx from "https://cdn.skypack.dev/clsx@1.1.1";
 import MenuItem from "./MenuItem";
 
 const sidebarItems = [
@@ -23,10 +22,10 @@ const Sidebar = ({ showSidebar, hideSidebar }) => {
 
   return (
     <div
-      className={clsx(
-        "fixed inset-y-0 left-0 bg-card w-full sm:w-20 xl:w-60 sm:flex flex-col z-10 border-2 bg-gray-100",
-        showSidebar ? "flex" : "hidden"
-      )}
+      className={
+        `fixed inset-y-0 left-0 bg-card w-full sm:w-20 xl:w-60 sm:flex flex-col z-10 border-2 bg-gray-100
+        ${showSidebar ? `flex` : `hidden`}`
+      }
     >
       <div className="flex-shrink-0 overflow-hidden p-2">
       <div className="flex items-center h-full sm:justify-center xl:justify-start p-2 md:px-4 sidebar-separator-top">

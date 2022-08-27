@@ -1,34 +1,46 @@
 import React from "react";
+import Graph from "./Graph";
+import PieChart1 from "./PieChart1";
+import {Progress} from "./Progress";
 
 const data = [
   {
     id: 1,
     title: "Total Consumers",
     Numbers: "1127",
-    subtitle: "26 new subscription added",
+    subtitle: "26 new subscribers",
     tag: "",
-    imageLinks: "",
-    graph:"",
+    imageLink: "",
+    graph: "",
   },
   {
     id: 2,
     title: "Active Subscriptions",
     Numbers: "969",
-    subtitle: "26 new subscription added",
+    subtitle: "26 new subscribers",
     tag: "17%",
-    imageLinks: "",
-    graph:"",
+    imageLink: "/increase.png",
+    graph: "1",
+    increase: true,
   },
   {
     id: 3,
     title: "Inactive Users",
     Numbers: "158",
     subtitle: "9 inactive user",
-    tag: "9%",
-    imageLinks: "",
-    graph:"",
+    tag: "10%",
+    imageLink: "/decrease.png",
+    graph: "1",
+    increase: false,
   },
 ];
+
+const incomeData = [
+  {id:1, title:"February", income:"75,000"},
+  {id:2, title:"January", income:"73,500"},
+  {id:3, title:"December", income:"62,340", colored:true},
+  {id:4, title:"November", income:"51,718"},
+]
 
 const Content = ({ hideSidebar }) => {
   return (
@@ -64,58 +76,112 @@ const Content = ({ hideSidebar }) => {
             </button>
           </div>
         </div>
-        <div className="w-full flex flex-col md:flex-row border-b-2">
-          {data.map(({ id, title, Numbers, subtitle, tag, imageLinks, graph }) => (
-            <>
-              <div key={id} className="p-2 lg:w-1/3 border-r-2">
-                <div className="rounded-lg bg-card h-40">
-                  <h2 className="text-xl font-semibold text-center">{title}</h2>
-                  <div className="flex flex-row justify-center">
-                    <div className="flex flex-row justify-center">
-                      <div className="text-4xl text-center font-semibold">
-                        {Numbers}
-                      </div>
-                      {tag && (
-                        <div className="bg-emerald-400 m-2 rounded-md px-2">
-                          {tag}
+
+        {/* Top Component */}
+        <div className="w-full flex flex-col md:flex-row mt-4">
+          {data.map(
+            ({
+              id,
+              title,
+              Numbers,
+              subtitle,
+              tag,
+              imageLink,
+              increase,
+              graph,
+            }) => (
+              <>
+                <div key={id} className="p-2 lg:w-1/3 border-r-2 border-b-2">
+                  <div className="rounded-lg bg-card h-30">
+                    <h2 className="text-xl font-semibold text-center">
+                      {title}
+                    </h2>
+                    <div className="flex flex-row justify-center h-24 items-center pl-4">
+                      <div className="inline-flex">
+                        <div className="text-5xl text-center font-semibold">
+                          {Numbers}
                         </div>
-                      )}
+                        {tag && (
+                          <div
+                            className={`${
+                              increase
+                                ? `bg-green-200 text-green-600`
+                                : `bg-red-200 text-red-600`
+                            } m-2 rounded-[20px] pl-4 pr-6 font-semibold h-6 inline-flex`}
+                          >
+                            {tag}
+                            <img
+                              src={imageLink}
+                              alt="icon"
+                              className="w-4"
+                            />
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        {graph && (
+                            <Graph id={id} />
+                        )}
+                      </div>
                     </div>
-                    <div>
-                      {graph && (
-                          <h1>graph</h1>
-                      )
-                      }
-                    </div>
+                    <p className="text-xm text-center text-gray-500">
+                      {subtitle}
+                    </p>
                   </div>
-                  <p className="text-xl text-center text-gray-500">
-                    {subtitle}
-                  </p>
                 </div>
-              </div>
-            </>
-          ))}
+              </>
+            )
+          )}
         </div>
 
-        <div className="w-full p-2 lg:w-1/3">
-          <div className="rounded-lg bg-card h-80">
-            {/* <Segmentation /> */}
-            component4
+        {/* Middle component */}
+        <h2 className="text-xl font-semibold text-left my-8">Income</h2>
+        <div className="w-full flex flex-wrap justify-center gap-2 md:gap-0">
+          {incomeData.map(
+            ({
+              id,
+              title,
+              income,
+              colored
+            }) => (
+              <>
+                <div key={id} className={`${colored? `bg-blue-600 text-white` : ``} group px-2 py-2 w-auto lg:w-1/4 border-r-2 border-x-2`}>
+                  <div className="rounded-lg bg-card h-20 px-4">
+                    <h2 className={`${colored? ` text-white` : `text-gray-400`}text-xm font-semibold`}>
+                      {title}
+                    </h2>
+                    <div className="text-2xl font-semibold">
+                      ₹{income}
+                    </div>
+                    <button className="text-xs my-1 px-2 py-1 font-semibold rounded-md hidden group-hover:flex group-hover:transition-all group-hover:delay-200 hover:border-2">
+                      Insights ▶
+                    </button>
+                  </div>
+                </div>
+              </>
+            )
+          )}
+          <div className="hidden md:flex w-full bg-gradient-to-r from-blue-200 to-blue-700 h-6">
+            {/* <img src="/bg.png" alt="bg" className="w-full h-16" /> */}
           </div>
         </div>
-        <div className="w-full p-2 lg:w-1/3">
+
+        {/* Last Component */}
+        <div className="w-full border-t-2 flex flex-wrap mt-8">
+        <div className="p-2 lg:w-1/3">
+          <h2 className="text-left font-semibold text-xl">Subscriber</h2>
           <div className="rounded-lg bg-card h-80">
-            {/* <Satisfication /> */}
-            component5
+            <PieChart1/>
           </div>
         </div>
-        <div className="w-full p-2 lg:w-1/3">
-          <div className="rounded-lg bg-card overflow-hidden h-80">
-            {/* <AddComponent /> */}
-            component6
+        <div className="p-2 lg:w-2/3 mt-20 md:mt-0">
+        <h2 className="md:ml-12 font-semibold text-xl">Advertisements</h2>
+          <div className="rounded-lg bg-card h-80 md:pl-16">
+            <Progress />
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
