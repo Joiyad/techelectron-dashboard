@@ -29,7 +29,7 @@ const Sidebar = ({ showSidebar, hideSidebar }) => {
     >
       <div className="flex-shrink-0 overflow-hidden p-2">
       <div className="flex items-center h-full sm:justify-center xl:justify-start p-2 md:px-4 sidebar-separator-top">
-      <button onClick={hideSidebar} type="button" className=" block xl:hidden">
+      <button onClick={hideSidebar} type="button" className=" block sm:hidden">
         <img src='/menu.png' alt="back" className="w-8"/>
       </button>
       <button onClick={onClick} type="button" className="px-5 py-2 bg-white hidden xl:block">
