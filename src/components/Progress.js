@@ -7,7 +7,7 @@ const data = [
     { id: 6, title: "Nov-Dec", percent: "19.9%" },
   ];
   
-  export const Progress = () => (
+  const Progress = () => (
     <div>
     <div className="flex flex-wrap lg:w-2/3 mt-8 gap-y-2">
       {data.map(({id, title, percent}) => (
@@ -28,3 +28,5 @@ const data = [
         </div>
     </div>
   );
+
+  export default Progress;

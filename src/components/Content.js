@@ -1,7 +1,7 @@
 import React from "react";
 import Graph from "./Graph";
 import PieChart1 from "./PieChart1";
-import {Progress} from "./Progress";
+import Progress from "./Progress";
 
 const data = [
   {
@@ -164,7 +164,7 @@ const Content = ({ hideSidebar }) => {
             <div className="h-16 bg-gradient-to-r from-blue-200 to-white w-1/4"><div className="bg-gradient-to-r from-blue-100 to-blue-200 h-12 mt-2"></div></div>
             <div className="h-12 mt-2 bg-gradient-to-r from-blue-200 to-white w-1/4"><div className="bg-gradient-to-r from-blue-200 to-blue-300 h-8 mt-2"></div></div>
             <div className="h-10 pt-4 bg-blue-600 w-1/4"><div className="bg-gradient-to-r from-blue-300 to-blue-400 h-6 mt-2"></div></div>
-            <div className="h-6 bg-blue-700 w-1/4 mt-6"></div>
+            <div className="h-6 bg-blue-600 w-1/4 mt-6"></div>
           </div>
         </div>
 
