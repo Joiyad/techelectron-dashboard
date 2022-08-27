@@ -70,7 +70,6 @@ const Content = ({ hideSidebar }) => {
               onClick={hideSidebar}
               type="button"
               className="block sm:hidden"
-              icon="res-react-dash-sidebar-open"
             >
               <img src="/menu.png" alt="menu" className="w-6" />
             </button>
@@ -161,8 +160,11 @@ const Content = ({ hideSidebar }) => {
               </>
             )
           )}
-          <div className="hidden md:flex w-full bg-gradient-to-r from-blue-200 to-blue-700 h-6">
-            {/* <img src="/bg.png" alt="bg" className="w-full h-16" /> */}
+          <div className="hidden md:flex w-full">
+            <div className="h-20 bg-gradient-to-r from-blue-200 to-white w-1/4"><div className="bg-blue-300 h-16 mt-2"></div></div>
+            <div className="h-16 bg-gradient-to-r from-blue-200 to-white w-1/4"><div className="bg-blue-400 h-12 mt-2"></div></div>
+            <div className="h-8 bg-blue-600 w-1/4"><div className="bg-blue-500 h-8 mt-2"></div></div>
+            <div className="h-6 bg-blue-700 w-1/4"></div>
           </div>
         </div>
 

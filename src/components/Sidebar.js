@@ -3,7 +3,7 @@ import MenuItem from "./MenuItem";
 
 const sidebarItems = [
   [
-    { id: "0", title: "Dashboard", imageLink: "/dashboard.png" },
+    { id: "0", title: "Dashboard", imageLink: "/dashboard.png", },
     { id: "1", title: "Filters", imageLink: "/filter.png" },
     { id: "2", title: "Subscriptions", imageLink: "/people.png" },
     { id: "3", title: "Consumers", imageLink: "/user.png" },
@@ -29,6 +29,9 @@ const Sidebar = ({ showSidebar, hideSidebar }) => {
     >
       <div className="flex-shrink-0 overflow-hidden p-2">
       <div className="flex items-center h-full sm:justify-center xl:justify-start p-2 md:px-4 sidebar-separator-top">
+      <button onClick={hideSidebar} type="button" className=" block xl:hidden">
+        <img src='/menu.png' alt="back" className="w-8"/>
+      </button>
       <button onClick={onClick} type="button" className="px-5 py-2 bg-white hidden xl:block">
         <img src='/logo.png' alt="logo" className="w-32"/>
       </button>

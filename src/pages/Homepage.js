@@ -7,13 +7,13 @@ const Homepage = () => {
   return (
     <div className="flex">
       <Sidebar
-        onSidebarHide={() => {
+        hideSidebar={() => {
           onSetShowSidebar(false);
         }}
         showSidebar={showSidebar}
       />
       <Content
-        onSidebarHide={() => {
+        hideSidebar={() => {
           onSetShowSidebar(true);
         }}
       />
