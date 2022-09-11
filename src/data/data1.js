@@ -1,0 +1,43 @@
+export const data1 = [
+    {
+      id: 1,
+      title: "Active Subscriptions",
+      Numbers: "969",
+      subtitle: "26 new subscribers",
+      tag: "17%",
+      imageLink: "/increase.png",
+      graph: "1",
+      increase: true,
+    },
+    {
+      id: 2,
+      title: "Active Consumers",
+      Numbers: "969",
+      subtitle: "26 new subscribers",
+      tag: "17%",
+      imageLink: "/increase.png",
+      graph: "1",
+      increase: true,
+    },
+    {
+      id: 3,
+      title: "Active Advertisors",
+      Numbers: "969",
+      subtitle: "9 inactive user",
+      tag: "17%",
+      imageLink: "/increase.png",
+      graph: "1",
+      increase: true,
+    },
+    {
+      id: 4,
+      title: "Active Patreon",
+      Numbers: "158",
+      subtitle: "9 inactive user",
+      tag: "10%",
+      imageLink: "/decrease.png",
+      graph: "1",
+      increase: false,
+    },
+  ];
+  

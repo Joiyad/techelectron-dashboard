@@ -1,36 +1,38 @@
 import React from "react";
 import { VictoryPie } from "victory";
-
-const data = [
-  { x: 25, y: 40 },
-  { x: 35, y: 20 },
-  { x: 40, y: 80 },
-];
+import { PieChartData } from "../data/piechart-data";
 
 const PieChart1 = () => {
   return (
     <div>
-      <div className="w-84 md:w-84 lg:w-96 md:px-12 border-r-2">
+      <div className="md:border-r-2 md:pr-16">
         <VictoryPie
           padAngle={({ datum }) => 2}
           innerRadius={100}
-          data={data}
-          colorScale={["#19CD50", "#CACDD0", "blue"]}
+          responsive
+          labelRadius={({ innerRadius }) => innerRadius + 10 }
+          data={PieChartData}
+          colorScale={["#19CD50", "#CACDD0", "#F4B667", "blue"]}
           labelComponent={undefined}
+          style={{ labels: { fill: "black", fontSize: 20, fontWeight: "bold" } }}
         />
       </div>
-      <div className="flex flex-row gap-x-8 md:pl-6 lg:w-16">
-        <div className="flex flex-row gap-x-2">
+      <div className="grid grid-cols-2 grid-rows-2 gap-x-2 gap-y-2 lg:w-84 pl-12 md:pl-2">
+        <div className="w-30 inline-flex">
           <div className="w-6 h-6 bg-blue-700 rounded-md"></div>
-          <p className="text-xm font-semibold">Active</p>
+          <p className="text-xm font-semibold ml-2">Active</p>
         </div>
-        <div className="flex flex-row gap-x-2">
+        <div className="w-30 inline-flex">
+          <div className="w-6 h-6 bg-orange-300 rounded-md"></div>
+          <p className="text-xm font-semibold ml-2">Advertisor</p>
+        </div>
+        <div className="w-30 inline-flex">
           <div className="w-6 h-6 bg-emerald-500 rounded-md"></div>
-          <p className="text-xm font-semibold">Patrion</p>
+          <p className="text-xm font-semibold ml-2">Patrion</p>
         </div>
-        <div className="flex flex-row gap-x-2">
-          <div className="w-6 h-6 bg-gray-400 rounded-md"></div>
-          <p className="text-xm font-semibold">Inactive</p>
+        <div className="w-30 inline-flex">
+          <div className="w-6 h-6 bg-gray-300 rounded-md"></div>
+          <p className="text-xm font-semibold ml-2">Inactive</p>
         </div>
       </div>
     </div>
